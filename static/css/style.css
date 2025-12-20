@@ -1,0 +1,620 @@
+/* Custom Styles for Movie Booking Portal */
+
+:root {
+    --primary-color: #dc2626;
+    --secondary-color: #991b1b;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+/* Premium Navigation */
+.premium-nav {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.premium-nav .navbar-brand {
+    color: var(--primary-color);
+}
+
+.premium-nav .nav-link {
+    color: #555;
+    font-weight: 500;
+}
+
+/* User Profile Icon */
+.user-profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.user-profile-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.dropdown-header {
+    font-weight: 600;
+    color: #dc2626;
+}
+
+.premium-nav .btn-primary {
+    background: #dc2626;
+    border: none;
+}
+
+.premium-nav .dropdown-menu {
+    margin-top: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Search Section Styling */
+.search-section {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.search-input-wrapper,
+.select-wrapper {
+    position: relative;
+}
+
+.search-icon,
+.select-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dc2626;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.search-input,
+.select-input {
+    padding: 10px 14px 10px 40px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+}
+
+.search-input:focus,
+.select-input:focus {
+    background-color: #ffffff;
+    border-color: #dc2626;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #9ca3af;
+}
+
+.btn-search {
+    background: #dc2626;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: none !important;
+}
+
+.btn-search:hover,
+.btn-search:focus,
+.btn-search:active,
+.btn-search:focus-visible,
+.btn-search.active,
+.btn-search:active:focus {
+    background: #dc2626 !important;
+    color: white !important;
+    border: none !important;
+    transform: none !important;
+    outline: none !important;
+}
+
+@media (max-width: 768px) {
+    .search-input,
+    .select-input {
+        padding: 10px 12px 10px 38px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-search {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    background: #ffffff;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #dc2626;
+}
+
+.hero-section .container {
+    position: relative;
+}
+
+.hero-title {
+    color: #1a1a1a;
+}
+
+.hero-subtitle {
+    color: #666;
+}
+
+.hero-icon {
+    font-size: 10rem;
+    opacity: 0.9;
+    color: #dc2626;
+}
+
+/* Hero Poster Container */
+.hero-carousel {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hero-carousel .carousel-inner {
+    border-radius: 8px;
+}
+
+.carousel-poster {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.hero-carousel .carousel-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.hero-carousel .carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.hero-carousel .carousel-indicators {
+    margin-bottom: 10px;
+}
+
+.hero-carousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    margin: 0 5px;
+}
+
+.hero-carousel .carousel-indicators button.active {
+    background-color: #fff;
+}
+
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+    width: 50px;
+    opacity: 0;
+    transition: none;
+}
+
+.hero-carousel:hover .carousel-control-prev,
+.hero-carousel:hover .carousel-control-next {
+    opacity: 0;
+}
+
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.hero-carousel .carousel-item {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hero-carousel .carousel-item.active {
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+    .hero-carousel {
+        max-width: 300px;
+        margin-top: 30px;
+    }
+    
+    .carousel-poster {
+        height: 400px;
+    }
+}
+
+.hero-section .btn {
+}
+
+
+
+/* Navigation */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand i {
+    font-size: 1.8rem;
+}
+
+/* Movie Cards */
+.movie-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.movie-poster {
+    height: 350px;
+    object-fit: cover;
+}
+
+.movie-poster-placeholder {
+    height: 350px;
+}
+
+.card-footer {
+    padding: 1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+/* Remove default Bootstrap hover effect */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+}
+
+/* Search Section */
+.search-section {
+}
+
+/* Features Section */
+.feature-box {
+}
+
+.feature-box i {
+}
+
+/* Footer */
+footer a {
+    text-decoration: none;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+/* Movie Detail Page */
+.poster-placeholder {
+    height: 500px;
+}
+
+/* Table */
+.table-hover tbody tr {
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 200px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .movie-poster,
+    .movie-poster-placeholder {
+        height: 250px;
+    }
+}
+
+/* Badge Styling */
+.badge {
+    padding: 0.5rem 0.8rem;
+    font-weight: 500;
+}
+
+/* Card Title */
+.card-title {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Table Dark Header - Red Theme */
+.table-dark {
+    --bs-table-bg: #991b1b;
+    --bs-table-striped-bg: #7f1d1d;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #7f1d1d;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #7f1d1d;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #7f1d1d;
+}
+
+/* Professional Footer Styling */
+footer.bg-dark {
+    background: #1a1a1a !important;
+    border-top: 2px solid #dc2626;
+}
+
+/* Badge Variants for Red Theme */
+.badge.bg-info {
+    background-color: #dc2626 !important;
+}
+
+.badge.bg-warning {
+    background-color: #fbbf24 !important;
+    color: #1a1a1a !important;
+}
+
+/* Enhanced Button Styles */
+.btn-warning {
+    background-color: #fbbf24;
+    border-color: #fbbf24;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.btn-outline-primary {
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+/* Alert Info - Red Theme */
+.alert-info {
+    background-color: #fee2e2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.alert-info .bi {
+    color: #dc2626;
+}
+
+/* Text Colors */
+.text-danger {
+    color: #dc2626 !important;
+}
+
+.text-info {
+    color: #dc2626 !important;
+}
+
+/* Icon Colors in Booking */
+.bi.text-primary,
+i.text-primary {
+    color: #dc2626 !important;
+}
+
+.bi.text-info,
+i.text-info {
+    color: #dc2626 !important;
+}
+
+/* Feature Box Icon Colors */
+.feature-box .bi.text-info {
+    color: #dc2626 !important;
+}
+
+/* Success Elements */
+.text-success, .bg-success {
+    --bs-success: #059669;
+    --bs-success-rgb: 5, 150, 105;
+}
+
+.badge.bg-success {
+    background-color: #059669 !important;
+}
+
+/* Loading Spinner */
+.spinner-border {
+    color: #dc2626;
+}
+
+/* Messages Container */
+.messages-container {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+}
+
+.messages-container .alert {
+}
+
+/* Dropdown Styling */
+.dropdown-menu {
+    border-radius: 4px;
+}
+
+.dropdown-item {
+    padding: 0.7rem 1.2rem;
+}
+
+/* Form Controls */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+textarea,
+select {
+    border-radius: 4px !important;
+}
+
+/* Professional Red Theme Enhancements */
+.card-header.bg-primary {
+    background: #dc2626 !important;
+    border: none;
+}
+
+
+
+.payment-option input[type="radio"]:checked ~ label {
+    color: #dc2626;
+}
+
+.payment-method-radio:checked {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+.booking-card {
+}
+
+/* Link Hover Effects */
+a {
+    color: #dc2626;
+}
+
+/* Form Check Input */
+.form-check-input:checked {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+.form-check-input:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 0.25rem rgba(220, 38, 38, 0.25);
+}
+
+/* Professional Spacing and Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #1a1a1a;
+}
+
+.display-4, .display-5 {
+    font-weight: 700;
+}
+
+/* Enhanced Shadow Effects */
+.shadow-lg {
+    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.1) !important;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Success Elements with Better Contrast */
+.text-success {
+    color: #059669 !important;
+}
+
+.bg-success {
+    background-color: #059669 !important;
+}
+
+/* Danger Elements */
+.text-danger {
+    color: #dc2626 !important;
+}
+
+.bg-danger {
+    background-color: #dc2626 !important;
+}
+
+/* Border Accent */
+.border-top {
+    border-top: 3px solid #dc2626 !important;
+}
+
+/* Hover States for Interactive Elements */
+
+/* Remove all hover effects globally */
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background-color: inherit !important;
+    border-color: inherit !important;
+    color: inherit !important;
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active {
+    background-color: transparent !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.card:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+}
+
+
+/* Professional Button Shadows */
+.btn {
+    transition: none !important;
+}
+
+/* Red Accent Line for Cards */
+.card {
+    border-top: 2px solid #dc2626;
+}
+
+.movie-card {
+    border-top: 2px solid #dc2626;
+}

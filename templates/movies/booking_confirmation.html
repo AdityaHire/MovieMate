@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Booking Confirmed - Movie Booking Portal{% endblock %}
+
+{% block content %}
+<section class="confirmation-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Success Message -->
+                <div class="text-center mb-5">
+                    <div class="success-icon mb-4">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 6rem;"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold text-success mb-3">Booking Confirmed!</h1>
+                    <p class="lead text-muted">Your tickets have been successfully booked.</p>
+                </div>
+                
+                <!-- Booking Details Card -->
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0">
+                            <i class="bi bi-ticket-detailed"></i> Booking Details
+                        </h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <p class="mb-2"><strong>Booking ID:</strong></p>
+                                <p class="text-primary fs-5 fw-bold">#{{ booking.id }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="mb-2"><strong>Booking Date:</strong></p>
+                                <p>{{ booking.booking_date|date:"F d, Y - h:i A" }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="mb-2"><strong>Payment Status:</strong></p>
+                                <span class="badge bg-success fs-6">{{ booking.get_payment_status_display }}</span>
+                            </div>
+                        </div>
+                        
+                        {% if booking.payment_status == 'COMPLETED' %}
+                        <div class="alert alert-success mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Payment ID:</strong> {{ booking.payment_id }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mb-1"><strong>Payment Method:</strong> {{ booking.get_payment_method_display }}</p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mb-0"><strong>Payment Date:</strong> {{ booking.payment_date|date:"F d, Y - h:i A" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <hr>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                {% if booking.show.movie.poster %}
+                                <img src="{{ booking.show.movie.poster.url }}" class="img-fluid rounded shadow" alt="{{ booking.show.movie.title }}">
+                                {% else %}
+                                <div class="bg-secondary rounded d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="bi bi-film text-white" style="font-size: 3rem;"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <h3 class="fw-bold mb-3">{{ booking.show.movie.title }}</h3>
+                                
+                                <div class="booking-details">
+                                    <div class="detail-item mb-3">
+                                        <i class="bi bi-building text-primary"></i>
+                                        <strong>Theater:</strong> {{ booking.show.theater.name }}
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <i class="bi bi-geo-alt text-danger"></i>
+                                        <strong>Location:</strong> {{ booking.show.theater.location }}
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <i class="bi bi-calendar text-success"></i>
+                                        <strong>Show Date:</strong> {{ booking.show.show_date|date:"l, F d, Y" }}
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <i class="bi bi-clock text-info"></i>
+                                        <strong>Show Time:</strong> {{ booking.show.show_time|time:"h:i A" }}
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <i class="bi bi-person-fill text-warning"></i>
+                                        <strong>Seats Booked:</strong> 
+                                        <span class="badge bg-primary fs-6">{{ booking.seats_booked }} seat(s)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="bi bi-cash-coin text-success"></i>
+                                        <strong>Total Paid:</strong> 
+                                        <span class="fs-4 fw-bold text-success">₹{{ booking.total_price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Important Information -->
+                <div class="card border-warning mb-4">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-exclamation-triangle text-warning"></i> Important Information
+                        </h5>
+                        <ul class="mb-0">
+                            <li>Please arrive at the theater at least 15 minutes before showtime.</li>
+                            <li>Carry a valid ID proof for verification.</li>
+                            <li>Show this booking confirmation at the theater entrance.</li>
+                            <li>Outside food and beverages are not allowed.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="{% url 'movies:my_bookings' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-list-check"></i> View All Bookings
+                    </a>
+                    <a href="{% url 'movies:home' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-house"></i> Back to Home
+                    </a>
+                    <button onclick="window.print()" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-printer"></i> Print Ticket
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .confirmation-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+    
+    .success-icon i {
+        animation: scaleIn 0.5s ease-out;
+    }
+    
+    @keyframes scaleIn {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    
+    .detail-item {
+        font-size: 1.1rem;
+    }
+    
+    .detail-item i {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+    }
+    
+    @media print {
+        .btn, nav, footer {
+            display: none !important;
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About - Movie Booking Portal{% endblock %}
+
+{% block content %}
+<section class="about-section py-5">
+    <div class="container">
+    
+        
+        <!-- Meet Our Team Section -->
+        <div class="row mb-5">
+            <div class="col-12 text-center mb-4">
+                <h2 class="display-5 fw-bold mb-2">About Developers</h2>
+                <p class="lead text-muted">The developers behind MovieMate</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center g-4 mb-5">
+            <!-- Developer 1 -->
+            <div class="col-md-4">
+                <div class="card developer-card h-100 border-0 shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="developer-avatar mb-3">
+                            <img src="{% static 'developers_image/Aman_Kokate.jpg' %}" alt="Aman Kokate" class="avatar-image">
+                        </div>
+                        <h4 class="fw-bold mb-2">Aman Kokate</h4>
+                        <p class="fw-semibold mb-3" style="color: #1a1a1a;">Team Leader</p>
+                        <p class="text-muted mb-4">Leading the development team with expertise in project management and full-stack development. Ensures project success and team coordination.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/AmanKokate" class="btn btn-outline-dark btn-sm me-2" style="border-color: #333; color: #333;">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/aman-kokate/" class="btn btn-sm me-2" style="border: 1px solid #0077B5; color: #0077B5;">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="https://amankokate.github.io/MyPortfolio/" class="btn btn-sm me-2" style="border: 1px solid #6366f1; color: #6366f1;">
+                                <i class="bi bi-person-workspace"></i>
+                            </a>
+                            <a href="mailto:amankokate1@gmail.com" class="btn btn-sm" style="border: 1px solid #dc2626; color: #dc2626;">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Developer 2 -->
+            <div class="col-md-4">
+                <div class="card developer-card h-100 border-0 shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="developer-avatar mb-3">
+                            <img src="{% static 'developers_image/Kasturi_Bhogal.jpg' %}" alt="Kasturi Bhogal" class="avatar-image">
+                        </div>
+                        <h4 class="fw-bold mb-2">Kasturi Bhogal</h4>
+                        <p class="fw-semibold mb-3" style="color: #1a1a1a;">Frontend Manager</p>
+                        <p class="text-muted mb-4">Managing frontend development with expertise in UI/UX design and responsive web interfaces. Creates beautiful and intuitive user experiences.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/Kasturib-09" class="btn btn-outline-dark btn-sm me-2" style="border-color: #333; color: #333;">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kasturi-bhogal-0b1a95290/" class="btn btn-sm me-2" style="border: 1px solid #0077B5; color: #0077B5;">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm me-2" style="border: 1px solid #6366f1; color: #6366f1;">
+                                <i class="bi bi-person-workspace"></i>
+                            </a>
+                            <a href="mailto:bhogalkasturi@example.com" class="btn btn-sm" style="border: 1px solid #dc2626; color: #dc2626;">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Developer 3 -->
+            <div class="col-md-4">
+                <div class="card developer-card h-100 border-0 shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="developer-avatar mb-3">
+                            <img src="{% static 'developers_image/Aditya_Hire.jpg' %}" alt="Aditya Hire" class="avatar-image">
+                        </div>
+                        <h4 class="fw-bold mb-2">Aditya Hire</h4>
+                        <p class="fw-semibold mb-3" style="color: #1a1a1a;">Backend Manager</p>
+                        <p class="text-muted mb-4">Managing backend infrastructure with expertise in database design and server-side development. Ensures robust and scalable backend operations.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/AdityaHire" class="btn btn-outline-dark btn-sm me-2" style="border-color: #333; color: #333;">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/aditya-hire-2a0974357//" class="btn btn-sm me-2" style="border: 1px solid #0077B5; color: #0077B5;">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="https://adityahire.github.io/myportfolio/" class="btn btn-sm me-2" style="border: 1px solid #6366f1; color: #6366f1;">
+                                <i class="bi bi-person-workspace"></i>
+                            </a>
+                            <a href="mailto:adityahire08@gmail.com" class="btn btn-sm" style="border: 1px solid #dc2626; color: #dc2626;">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                            
+
+<style>
+    .about-section {
+        background: #ffffff;
+        min-height: 100vh;
+        position: relative;
+    }
+    
+    .step-number {
+        font-weight: bold;
+    }
+    
+    /* Developer Card Styles */
+    .developer-card {
+        border-top: 2px solid #dc2626 !important;
+        background: #ffffff;
+    }
+    
+    .avatar-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    
+    .avatar-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: none;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .bg-gradient-red {
+        background: #dc2626;
+    }
+    
+    .developer-card .social-links a {
+        transition: none !important;
+        text-decoration: none !important;
+    }
+    
+    .developer-card .social-links a:hover {
+        background-color: transparent !important;
+        transform: none !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+    }
+    
+    /* Prevent hover effects for each icon individually */
+    .developer-card .social-links a[style*="#333"]:hover {
+        color: #333 !important;
+        border-color: #333 !important;
+    }
+    
+    .developer-card .social-links a[style*="#0077B5"]:hover {
+        color: #0077B5 !important;
+        border-color: #0077B5 !important;
+    }
+    
+    .developer-card .social-links a[style*="#6366f1"]:hover {
+        color: #6366f1 !important;
+        border-color: #6366f1 !important;
+    }
+    
+    .developer-card .social-links a[style*="#dc2626"]:hover {
+        color: #dc2626 !important;
+        border-color: #dc2626 !important;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Bookings - Movie Booking Portal{% endblock %}
+
+{% block content %}
+<section class="my-bookings-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="display-5 fw-bold">
+                        <i class="bi bi-ticket-perforated text-primary"></i> My Bookings
+                    </h1>
+                    <a href="{% url 'movies:home' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-house"></i> Back to Home
+                    </a>
+                </div>
+                
+                {% if bookings %}
+                <div class="row g-4">
+                    {% for booking in bookings %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card booking-card shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold">Booking #{{ booking.id }}</span>
+                                    <div>
+                                        {% if booking.payment_status == 'COMPLETED' %}
+                                        <span class="badge bg-success me-2">Paid</span>
+                                        {% elif booking.payment_status == 'PENDING' %}
+                                        <span class="badge bg-warning text-dark me-2">Pending Payment</span>
+                                        {% elif booking.payment_status == 'FAILED' %}
+                                        <span class="badge bg-danger me-2">Payment Failed</span>
+                                        {% endif %}
+                                        <span class="badge bg-light text-dark">{{ booking.booking_date|date:"M d, Y" }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% if booking.show.movie.poster %}
+                            <img src="{{ booking.show.movie.poster.url }}" class="card-img-top" alt="{{ booking.show.movie.title }}" style="height: 200px; object-fit: cover;">
+                            {% else %}
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="bi bi-film text-white" style="font-size: 3rem;"></i>
+                            </div>
+                            {% endif %}
+                            
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold mb-3">{{ booking.show.movie.title }}</h5>
+                                
+                                <div class="booking-info">
+                                    <p class="mb-2 small">
+                                        <i class="bi bi-building text-primary"></i>
+                                        {{ booking.show.theater.name }}
+                                    </p>
+                                    <p class="mb-2 small">
+                                        <i class="bi bi-geo-alt text-danger"></i>
+                                        {{ booking.show.theater.location }}
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="bi bi-calendar text-success"></i>
+                                        <strong>{{ booking.show.show_date|date:"M d, Y" }}</strong>
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="bi bi-clock text-info"></i>
+                                        <strong>{{ booking.show.show_time|time:"h:i A" }}</strong>
+                                    </p>
+                                    <p class="mb-2">
+                                        <i class="bi bi-person-fill text-warning"></i>
+                                        <strong>{{ booking.seats_booked }} seat(s)</strong>
+                                    </p>
+                                    <p class="mb-0">
+                                        <i class="bi bi-cash-coin text-success"></i>
+                                        <span class="fs-5 fw-bold text-success">₹{{ booking.total_price }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="card-footer bg-white border-0">
+                                {% if booking.payment_status == 'PENDING' %}
+                                <a href="{% url 'movies:payment' booking.id %}" class="btn btn-sm btn-warning w-100 mb-2">
+                                    <i class="bi bi-credit-card"></i> Complete Payment
+                                </a>
+                                {% endif %}
+                                <a href="{% url 'movies:booking_confirmation' booking.id %}" class="btn btn-sm btn-primary w-100">
+                                    <i class="bi bi-eye"></i> View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Pagination could go here -->
+                {% if bookings|length > 6 %}
+                <div class="mt-5 text-center">
+                    <p class="text-muted">Showing {{ bookings|length }} booking(s)</p>
+                </div>
+                {% endif %}
+                
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-inbox text-muted" style="font-size: 5rem;"></i>
+                    <h3 class="mt-4 text-muted">No Bookings Yet</h3>
+                    <p class="text-muted mb-4">You haven't booked any movie tickets yet.</p>
+                    <a href="{% url 'movies:home' %}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-film"></i> Browse Movies
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .my-bookings-section {
+        min-height: 80vh;
+        background-color: #f8f9fa;
+    }
+    
+    .booking-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .booking-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .booking-info p {
+        font-size: 0.95rem;
+    }
+    
+    .booking-info i {
+        margin-right: 0.5rem;
+    }
+</style>
+{% endblock %}
