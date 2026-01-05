@@ -62,12 +62,6 @@ Movie show Booking/
 - SQLite
 - Pillow
 
-## 👥 Team
-
-- **Aman Kokate** - Team Leader ([GitHub](https://github.com/AmanKokate) | [LinkedIn](https://www.linkedin.com/in/aman-kokate/) | [Portfolio](https://amankokate.github.io/MyPortfolio/))
-- **Kasturi Bhogal** - Frontend Manager
-- **Aditya Hire** - Backend Manager
-
 ## 📧 Contact
 
-amankokate1@gmail.com
+adityahire08@gmail.com
